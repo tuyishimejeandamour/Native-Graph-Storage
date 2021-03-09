@@ -59,6 +59,8 @@ int main(int argc, char const *argv[]) {
         int exit_code;
         auto bytes_sent = read(new_socket, buffer, 1024);
         auto edge = json::parse(buffer);
+        NodeBlock* sourceNode = nm->addNode(edge["id"]);
+        // NodeBlock* destinationNode = nodeManagers.at(destinationJson["pid"].get<int>())->addNode(dId);
         std::cout << "ID = " << edge["id"] << std::endl;
         printf("%s\n", buffer);
         exit_code = atoi(buffer);
